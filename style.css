@@ -1,0 +1,246 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+body{
+    width: 100%;
+    height:100vh;
+    background-color: #E3EDF7;
+}
+.clock-container{
+    width:100%;
+    height:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h1{
+    color:#31456A;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size:50px;
+    text-align: left;
+    user-select: none;
+    margin-bottom:40px;
+    margin-top:40px;
+}
+.circle {
+    fill:none;
+    stroke:#31456A;
+    stroke-width: 12px;
+    stroke-miterlimit: 10;
+}
+.round{
+    height:300px;
+    border-radius: 50%;
+    background: #E3EDF7;
+    box-shadow:  18px 18px 27px #acb8c4, 
+                 -18px -18px 27px #e8faff;
+    user-select: none;
+}
+.numbers{
+    color:#31456A;
+    position: relative;
+    left:70px;
+    bottom:177px;
+    font-size:25px;
+}
+
+.hour-marks {
+    fill: none;
+    stroke: #31456A;
+    stroke-width: 7;
+    stroke-miterlimit: 10;
+}
+
+/* Transparent box ensuring arms center properly. */
+.sizing-box {
+    fill: none;
+}
+
+.controls button{
+    width:130px;
+    height:40px;
+    border-radius:10px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: #E3EDF7;
+    box-shadow:  4px 4px 8px #8f9aa4, 
+    -4px -4px 8px #ffffff;
+    margin-left:10px;
+}
+.controls button:active{
+    border-radius: 10px;
+    background: #CAD9E7;
+    box-shadow:  -4px -4px 8px #8f9aa4, 
+                  4px 4px 8px #ffffff;
+}
+.controls{
+    margin-top:50px;
+    user-select: none;
+}
+.start,.stop,.interval,.continue{
+    color:#31456A;
+    font-size:16px;
+    font-weight:600;
+}
+.reset{
+    color:#CC5A5C;
+    font-size:16px;
+    font-weight:600;
+}
+.laps{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 30px;
+    user-select: none;
+}
+.laps span{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 270px;
+    height:40px;
+    margin-top:30px;
+    margin-left: 10px;
+    border-radius:10px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: #E3EDF7;
+    box-shadow:  4px 4px 8px #8f9aa4, 
+    -4px -4px 8px #ffffff;
+    transition: .5s display ease;
+}
+ .laps span h5{ 
+    font-size:18px;
+    color:#31456A;
+    font-weight: bold;
+    margin-right:130px;
+} 
+.laps span h3{
+    color:#31456A;
+} 
+.laps span p{
+    position: relative;
+    right:120px;
+    color:#9AA8BE;
+    font-weight: 500;
+}
+/* Animation */
+.stop{
+    opacity:0;
+    transform: translateX(50px);
+    transition: .5s all ease;
+}
+
+.stopAn{
+    animation:stopMove .6s 1 forwards;
+}
+
+@keyframes stopMove{
+    0%{
+        opacity:0;
+        transform: translateX(50px);
+    }
+    80%{
+        opacity:1;
+    }
+    100%{
+        opacity:1;
+        transform: translateX(0px);
+    }
+}
+
+.interval{
+    opacity:0;
+    transform: translateX(-50px);
+    transition: .5s all ease;
+}
+
+
+.intervalAn{        
+    animation:intervalMove .6s 1 forwards;
+}
+
+@keyframes intervalMove{
+    0%{        background-color:#31456A;
+        color: #e3e3e3;
+        opacity:0;
+        transform: translateX(-50px);
+    }
+    80%{        background-color:#31456A;
+        color: #e3e3e3;
+        opacity:1;
+    }
+    100%{        background-color:#31456A;
+        color: #e3e3e3;
+        opacity:1;
+        transform: translateX(0px);
+    }
+}
+
+.continue{
+    opacity:1;
+    transform:translateX(0px);
+    transition: .5s all ease;
+}
+
+.continueAn{
+    animation:continueMove .6s 1 forwards;
+}
+
+@keyframes continueMove{
+    0%{
+        opacity:1;
+        transform: translateX(0px);
+    }
+    100%{
+        opacity:0;
+        transform: translateX(70px);
+    }
+}
+
+.reset{
+    opacity:1;
+    transform:translateX(0px);
+    transition: .5s all ease;
+}
+
+.resetAn{
+    animation:resetMove .6s 1 forwards;
+}
+
+@keyframes resetMove{
+    0%{
+        opacity:1;
+        transform: translateX(0px);
+    }
+    100%{
+        opacity:0;
+        transform: translateX(-75px);
+    }
+}
+
+@media screen and(max-width:370px){
+    h1{
+        font-size:40px;
+    }
+    .round{
+        height:205px;
+        width:65%;
+    }
+    .numbers{
+        position: relative;
+        left:40px;
+        bottom:127px;
+        font-size:20px;
+    }
+}
